@@ -1,0 +1,50 @@
+[
+  {
+    "outlet": "The Legal Technologist",
+    "date": "22 May 2021",
+    "title": "Transforming Hong Kong into Asia's Legal Tech Hub",
+    "quote": "Adopting an inter-jurisdictional and interdisciplinary approach, her article seeks to dissect the success formula behind the growth of legaltech hubs in the U.S., China and Singapore before proposing a legaltech hub development model suitable for Hong Kong.",
+    "href": "https://www.legaltechnologist.co.uk/article/transforming-hong-kong-into-asias-legal-tech-hub/",
+    "image": "/img/press-legaltech.jpg"
+  },
+  {
+    "outlet": "Jumpstart Magazine",
+    "date": "9 April 2021",
+    "title": "Why Hong Kong Needs To Step Up Its Legaltech Adoption",
+    "quote": "Litex Co-founder and CEO Chloe Chan talks to Jumpstart about legal education — why it needs to adapt to the evolving technology landscape, and how to equip future lawyers for the booming legaltech market.",
+    "href": "https://www.jumpstartmag.com/why-hong-kong-needs-to-step-up-its-legaltech-adoption/",
+    "image": "/img/press-hk-skyline.jpg"
+  },
+  {
+    "outlet": "MingPao",
+    "date": "September 2020",
+    "title": "Start-up Founded by 5 University of Hong Kong Students Won Iron Tech Lawyer",
+    "quote": "Students from the University of Hong Kong won the inaugural Iron Tech Lawyer Invitational organised by Georgetown Law with an AI-powered casebank to assist injured workers to get the compensation they deserve.",
+    "href": "/files/mingpao-2020-09-iron-tech-lawyer.pdf",
+    "image": "/img/press-iron-tech-win.jpg"
+  },
+  {
+    "outlet": "MingPao",
+    "date": "28 September 2020",
+    "title": "Start-up Builds Research Engine to Help Injured Workers' Rights-Bargaining",
+    "quote": "The ultimate goal of Litex is to build an AI which can automatically scrape, summarise and extract the key factors from workers' injury judgments.",
+    "href": "/files/mingpao-2020-09-28-research-engine.pdf",
+    "image": "/img/press-award.jpg"
+  },
+  {
+    "outlet": "Hong Kong Lawyer",
+    "date": "May 2020",
+    "title": "HKU Students Win Inaugural Iron Tech Lawyer Invitational with AI-powered Platform",
+    "quote": "The experience of bringing about EC Bank has boosted my sensitivity towards the closer connection between technological possibilities and legal realities.",
+    "href": "https://www.hk-lawyer.org/content/hong-kong-university-students-win-inaugural-iron-tech-lawyer-invitational-creating-ai",
+    "image": "/img/logo-hong-kong-lawyer.jpg"
+  },
+  {
+    "outlet": "TOPick (HKET)",
+    "date": "December 2019",
+    "title": "College Students' Innovative Project Helps Promote Social Welfare",
+    "quote": "When building our solution, we adopted human-centric design thinking to ensure product-market fit and that we are solving users' pain points.",
+    "href": "https://topick.hket.com/article/2538370/",
+    "image": "/img/press-topick.jpg"
+  }
+]

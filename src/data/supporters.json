@@ -1,0 +1,14 @@
+[
+  { "name": "Hong Kong Science and Technology Parks", "image": "/img/logo-hkstp.png" },
+  { "name": "HKAI Lab", "image": "/img/logo-hkai-lab.png" },
+  { "name": "iDendron, HKU", "image": "/img/logo-idendron.png" },
+  { "name": "Georgetown Law", "image": "/img/logo-georgetown.png" },
+  { "name": "Iron Tech Lawyer Invitational", "image": "/img/logo-iron-tech.png" },
+  { "name": "HKU Faculty of Law", "image": "/img/logo-hku-law.jpg" },
+  { "name": "The Executive Centre", "image": "/img/logo-executive-centre.png" },
+  { "name": "AmCham Hong Kong", "image": "/img/logo-amcham.png" },
+  { "name": "HSBC Future Skills Development Project", "image": "/img/logo-hsbc-future-skills.png" },
+  { "name": "The Hong Kong Federation of Youth Groups", "image": "/img/logo-hkfyg.png" },
+  { "name": "Merlin Foundation", "image": "/img/logo-merlin.jpg" },
+  { "name": "Legal Business World", "image": "/img/logo-legal-business-world.jpg" }
+]

@@ -1,0 +1,120 @@
+---
+import Base from "../../layouts/Base.astro";
+import press from "../../data/press.json";
+import supporters from "../../data/supporters.json";
+const steps = [
+  { n:"01", h:"Vision", p:"We aim to create a legal research system that is accessible and hassle-free. We envisioned it as streamlined as possible while maintaining a function set on par with, if not better than, the existing alternatives — which meant completely rethinking how legal research works." },
+  { n:"02", h:"Model training", p:"We built a database of personal injury judgments with all key information labelled. In particular we identified \"key factors\" — the information that affects the assessment of damages: location and nature of injury, occupation, the existence of residual pain. We then trained our model on those labelled judgments." },
+  { n:"03", h:"User-centric design", p:"Key facts are displayed directly on the results page, with the filters being the key factors we identified, so users can accurately estimate damages. The system was co-created with lawyers and non-profits." },
+  { n:"04", h:"Access to justice", p:"Litex changed the dispute resolution process — instead of blindly accepting an offer, an injured worker can see what comparable cases actually settled for, and bargain from evidence." },
+];
+const ext = (h) => h.startsWith("http");
+---
+<Base title="Litex — Chloe L. W. Chan" description="Litex: Hong Kong's first LegalTech start-up using NLP for data extraction and judgment prediction in personal injury cases.">
+  <header class="wrap pagehead">
+    <span class="eyebrow">LegalTech · Co-founder &amp; CEO</span>
+    <h1>Litex</h1>
+    <p class="lede">Hong Kong's first LegalTech start-up leveraging Natural Language Processing
+    to perform data extraction and judgment prediction for personal injury cases.
+    Incubated at the Hong Kong Science and Technology Parks and the HKAI Lab.</p>
+  </header>
+
+  <section class="wrap">
+    <figure class="shot"><img src="/img/litex-screenshot.jpeg" alt="The Litex research engine" />
+      <figcaption class="muted">A user-centric research engine for personal injury cases</figcaption>
+    </figure>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">Traction</span>
+      <ul class="traction">
+        <li><strong>Champion</strong><span>Iron Tech Lawyer Invitational, Georgetown Law</span></li>
+        <li><strong>Champion</strong><span>Entrepreneur Programme Cohort</span></li>
+        <li><strong>Incubatee</strong><span>HKAI Lab</span></li>
+        <li><strong>2nd Runner-up</strong><span>HK University Student Innovation &amp; Entrepreneurship Competition</span></li>
+        <li><strong>500+</strong><span>Judgments in the research corpus</span></li>
+        <li><strong>BERT</strong><span>Deep learning &amp; NLP for key-factor extraction</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <span class="eyebrow">The story behind Litex</span>
+      <div class="steps">
+        {steps.map(s => (
+          <article class="step">
+            <span class="step__n">{s.n}</span>
+            <h3>{s.h}</h3>
+            <p>{s.p}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <span class="eyebrow">As seen on</span>
+      <h2 class="sec-title">Press</h2>
+      <div class="grid grid--2 press">
+        {press.map(a => (
+          <article class="art">
+            <a href={a.href} target={ext(a.href) ? "_blank" : undefined} rel="noopener">
+              <div class="art__img"><img src={a.image} alt="" loading="lazy" /></div>
+              <p class="art__meta">{a.outlet} · {a.date}</p>
+              <h3>{a.title}</h3>
+              <blockquote>{a.quote}</blockquote>
+              <span class="art__go">{ext(a.href) ? "Read more →" : "Read the clipping (PDF) →"}</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <span class="eyebrow">Resources, support &amp; recognition</span>
+      <ul class="logos">
+        {supporters.map(s => <li><img src={s.image} alt={s.name} loading="lazy" /></li>)}
+      </ul>
+    </div>
+  </section>
+
+  <style>
+    .shot{margin:0;border:1px solid var(--rule);background:var(--paper-2);padding:clamp(1rem,3vw,2.5rem)}
+    .shot img{width:100%;height:auto}
+    .shot figcaption{text-align:center;font-size:.85rem;margin-top:1rem}
+    .sec-title{margin-bottom:clamp(1.75rem,3vw,2.5rem)}
+
+    .traction{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
+    @media(min-width:640px){.traction{grid-template-columns:repeat(2,1fr)}}
+    @media(min-width:960px){.traction{grid-template-columns:repeat(3,1fr)}}
+    .traction li{background:var(--paper);padding:1.6rem 1.4rem;display:grid;gap:.4rem}
+    .traction strong{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--accent)}
+    .traction span{font-size:.9rem;color:var(--ink-soft);line-height:1.4}
+
+    .steps{display:grid;gap:clamp(1.5rem,3vw,2.5rem);margin-top:1.5rem}
+    @media(min-width:760px){.steps{grid-template-columns:repeat(2,1fr)}}
+    .step{border-top:2px solid var(--accent);padding-top:1.3rem}
+    .step__n{font-family:var(--serif);font-size:.95rem;color:var(--accent);letter-spacing:.1em}
+    .step h3{margin:.5rem 0 .7rem;font-size:1.35rem}
+    .step p{color:var(--ink-soft);font-size:.96rem}
+
+    .art a{text-decoration:none;display:block;height:100%}
+    .art__img{aspect-ratio:16/10;overflow:hidden;background:var(--paper-3);margin-bottom:1rem}
+    .art__img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .art a:hover .art__img img{transform:scale(1.04)}
+    .art__meta{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 .5rem}
+    .art h3{font-size:1.15rem;line-height:1.32;margin-bottom:.8rem}
+    .art a:hover h3{color:var(--accent)}
+    .art blockquote{margin:0 0 .9rem;padding-left:1rem;border-left:2px solid var(--rule);font-size:.92rem;color:var(--ink-soft);font-style:italic}
+    .art__go{font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+
+    .logos{list-style:none;padding:0;margin:1.75rem 0 0;display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:clamp(1.5rem,3vw,2.5rem);align-items:center}
+    .logos img{max-height:52px;width:auto;margin-inline:auto;filter:grayscale(1);opacity:.72;transition:filter .25s,opacity .25s}
+    .logos li:hover img{filter:grayscale(0);opacity:1}
+  </style>
+</Base>

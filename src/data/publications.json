@@ -1,0 +1,68 @@
+[
+  {
+    "title": "A Legal Analysis on an ETH ETF Approval",
+    "outlet": "Long-form paper",
+    "date": "2024",
+    "featured": true,
+    "blurb": "In Part 1, I touch upon the registration of ETPs, in particular the implications of registering as a product under the Investment Company Act / Securities Act. In Part 2, I explore the classification of ETH (as a security or commodity) plus the key issues in the cases of Ripple, Terraform, and Coinbase to discuss: (i) the significant holdings on the Howey test; (ii) the purported distinction between institutional and secondary market sales; (iii) the due process (or fair notice) defences; and (iv) the SEC's regulatory ambit: major questions doctrine and the Chevron deference.",
+    "href": "/files/eth-etf-legal-analysis.pdf",
+    "cta": "Read the paper (PDF)",
+    "image": "/img/pub-eth-etf.png"
+  },
+  {
+    "title": "Tokenization and Regulations: Insights from the Frontlines",
+    "outlet": "Cryptophobic Cryptophile",
+    "date": "May 2025",
+    "blurb": "My take on the latest narratives on RWA tokenization and stablecoins, regulatory movements and broader macro reflections.",
+    "href": "https://cryptophobiccryptophile.substack.com/p/tokenization-and-regulations-insights",
+    "image": "/img/pub-tokenization.jpg"
+  },
+  {
+    "title": "Possible Alternative Ways to Regulate Crypto Exchanges During the 1-Year Transitory Period: Staking Services as Collective Investment Schemes",
+    "outlet": "Hong Kong Lawyer Journal",
+    "date": "March 2024",
+    "blurb": "Published in the March 2024 issue on Industry Insights on Technology.",
+    "href": "https://www.hk-lawyer.org/sites/default/files/e-magazines/HONG-KONG-LAWYER-JOURNAL-(MARCH-2024)/64/",
+    "image": "/img/pub-hk-lawyer.jpeg"
+  },
+  {
+    "title": "Crypto Laws Deciphered #2 — The Overruling of the Chevron Deference",
+    "outlet": "Cryptophobic Cryptophile",
+    "date": "July 2024",
+    "blurb": "A silver lining amidst what has been dubbed \"regulation by enforcement\"? My commentary on the impact of the Supreme Court's ruling in Loper Bright Enterprises v. Raimondo, in particular as to the digital assets industry.",
+    "href": "https://cryptophobiccryptophile.substack.com/p/the-overruling-of-the-chevron-deference",
+    "image": "/img/pub-chevron.png"
+  },
+  {
+    "title": "Crypto Laws Deciphered #1 — BTC ETPs in the US",
+    "outlet": "Cryptophobic Cryptophile",
+    "date": "January 2024",
+    "blurb": "Confused with legal jargon? Read on as I guide you through the landmark Grayscale court decision and highlight what you should look out for after the approval of BTC spot ETPs.",
+    "href": "https://cryptophobiccryptophile.substack.com/p/crypto-laws-deciphered-1-btc-etps",
+    "image": "/img/pub-btc-etp.png"
+  },
+  {
+    "title": "What the Finance #1 — BTC Spot ETFs 101",
+    "outlet": "Cryptophobic Cryptophile",
+    "date": "January 2024",
+    "blurb": "All about the hype and, most importantly, why you should care.",
+    "href": "https://cryptophobiccryptophile.substack.com/p/what-the-finance-1-btc-spot-etfs",
+    "image": "/img/pub-btc-etf-101.jpg"
+  },
+  {
+    "title": "Cryptopedia #1 — Sui",
+    "outlet": "Cryptophobic Cryptophile",
+    "date": "January 2024",
+    "blurb": "All you need to know about Sui — founding team, fundraising, data model, tokenomics and the market sentiment.",
+    "href": "https://cryptophobiccryptophile.substack.com/p/cryptopedia-1-sui",
+    "image": "/img/pub-sui.png"
+  },
+  {
+    "title": "Reply to the SFC Consultation Paper on Virtual Asset Trading Platform Operators",
+    "outlet": "Securities and Futures Commission",
+    "date": "2023",
+    "blurb": "Collaborated with former regulators in suggesting that crypto derivatives, in particular futures products, should be offered to investors.",
+    "href": "https://apps.sfc.hk/edistributionWeb/api/consultation/openCommentFile?refNo=23CP1&commentRefNo=147",
+    "image": "/img/pub-sfc-consultation.jpg"
+  }
+]

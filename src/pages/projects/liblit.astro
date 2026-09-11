@@ -1,0 +1,70 @@
+---
+import Base from "../../layouts/Base.astro";
+const steps = [
+  { n:"01", h:"Originate", p:"Source cases from partnering plaintiff attorneys, law firms, or directly from plaintiff individuals." },
+  { n:"02", h:"Select", p:"With an in-house proprietary AI tool, select high quality cases of measurable social impact that can generate a risk-adjusted return." },
+  { n:"03", h:"Securitize", p:"List on our platform for accredited investors to invest in a fraction of the legal claim, through SPVs and/or tokenisation, with potential inclusion of institutional investors through a fund-of-funds." },
+];
+---
+<Base title="LibLit — Chloe L. W. Chan" description="LibLit: unlocking capital for underfunded impact litigation through innovative financing. Supported by the Harvard Innovation Labs.">
+  <header class="wrap pagehead">
+    <span class="eyebrow">FinTech · Founder</span>
+    <h1>LibLit</h1>
+    <p class="lede">Through innovative financing, we aim to unlock capital to help combat some of
+    the most pressing social issues in the US.</p>
+  </header>
+
+  <section class="section">
+    <div class="wrap narrow prose">
+      <h2 class="h-sub">Cases with definable impact are currently underfunded</h2>
+      <p>While legal aid non-profits strive for universal access to legal representation,
+      many cases are turned away for insufficient resources, conflicts of interest, or
+      misalignment with the organisation's mission. These cases commonly involve civil
+      rights violations, breaches of employment law, discrimination, and medical negligence.</p>
+
+      <h2 class="h-sub">Bridging access to justice through inclusive capitalism</h2>
+      <p>LibLit aims to unlock capital for good by providing liquidity to underfunded impact
+      litigation and supporting underserved communities. We are at the ideation stage and
+      have been in conversation with non-profits, litigators, litigation funders, and fund
+      managers in the US.</p>
+    </div>
+  </section>
+
+  <section class="section section--tint">
+    <div class="wrap">
+      <span class="eyebrow">How LibLit works</span>
+      <div class="steps">
+        {steps.map(s => (
+          <article class="step">
+            <span class="step__n">{s.n}</span>
+            <h3>{s.h}</h3>
+            <p>{s.p}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap narrow cta">
+      <h2>Interested in the white paper?</h2>
+      <p class="muted">Supported by the Harvard Innovation Labs.</p>
+      <a class="btn btn--accent" href="/contact/">Request the white paper</a>
+    </div>
+  </section>
+
+  <style>
+    .h-sub{font-size:clamp(1.35rem,2.4vw,1.8rem);margin-top:2.5rem;margin-bottom:1rem}
+    .h-sub:first-child{margin-top:0}
+    .prose p{color:var(--ink-soft)}
+    .steps{display:grid;gap:clamp(1.5rem,3vw,2.5rem);margin-top:1.5rem}
+    @media(min-width:820px){.steps{grid-template-columns:repeat(3,1fr)}}
+    .step{border-top:2px solid var(--accent);padding-top:1.3rem}
+    .step__n{font-family:var(--serif);font-size:.95rem;color:var(--accent);letter-spacing:.1em}
+    .step h3{margin:.5rem 0 .7rem;font-size:1.35rem}
+    .step p{color:var(--ink-soft);font-size:.96rem}
+    .cta{text-align:center}
+    .cta h2{margin-bottom:.6rem}
+    .cta p{margin-bottom:1.8rem}
+  </style>
+</Base>

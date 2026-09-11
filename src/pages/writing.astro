@@ -1,0 +1,69 @@
+---
+import Base from "../layouts/Base.astro";
+import publications from "../data/publications.json";
+const [lead, ...rest] = publications;
+const ext = (h) => h.startsWith("http");
+---
+<Base title="Writing — Chloe L. W. Chan" description="Legal analysis and commentary on digital asset regulation, ETPs, tokenization and market structure.">
+  <header class="wrap pagehead">
+    <span class="eyebrow">Insights &amp; Articles</span>
+    <h1>Writing</h1>
+    <p class="lede">My thoughts and insights on technological innovations, global crypto
+    regulations, and the market. Longer pieces appear on{" "}
+    <a class="ext" href="https://cryptophobiccryptophile.substack.com/" target="_blank" rel="noopener">Cryptophobic Cryptophile</a>.</p>
+  </header>
+
+  <section class="wrap">
+    <article class="lead">
+      <div class="lead__img"><img src={lead.image} alt="" width="900" height="600" /></div>
+      <div class="lead__body">
+        <span class="eyebrow">Recent publication</span>
+        <h2>{lead.title}</h2>
+        <p class="lead__meta muted">{lead.outlet} · {lead.date}</p>
+        <p class="lead__blurb">{lead.blurb}</p>
+        <a class="btn btn--accent" href={lead.href} target={ext(lead.href) ? "_blank" : undefined} rel="noopener">{lead.cta ?? "Read more"}</a>
+      </div>
+    </article>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="grid grid--2 list">
+        {rest.map(p => (
+          <article class="item">
+            <a class="item__link" href={p.href} target={ext(p.href) ? "_blank" : undefined} rel="noopener">
+              <div class="item__img"><img src={p.image} alt="" loading="lazy" /></div>
+              <div>
+                <p class="item__meta">{p.outlet} · {p.date}</p>
+                <h3>{p.title}</h3>
+                <p class="item__blurb">{p.blurb}</p>
+                <span class="item__go">Read more →</span>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <style>
+    .pagehead .ext{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 40%,transparent)}
+    .lead{display:grid;gap:clamp(1.5rem,4vw,3.5rem);align-items:center;padding-bottom:clamp(2rem,5vw,4rem);border-bottom:1px solid var(--rule)}
+    @media(min-width:880px){.lead{grid-template-columns:.9fr 1.1fr}}
+    .lead__img{background:var(--paper-3)}
+    .lead__img img{width:100%;height:auto}
+    .lead__body h2{margin-bottom:.7rem;font-size:clamp(1.7rem,2.8vw,2.35rem)}
+    .lead__meta{font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;margin-bottom:1.2rem}
+    .lead__blurb{color:var(--ink-soft);margin-bottom:1.8rem}
+
+    .item__link{display:grid;gap:1.2rem;text-decoration:none;height:100%}
+    .item__img{aspect-ratio:16/10;overflow:hidden;background:var(--paper-3)}
+    .item__img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
+    .item__link:hover .item__img img{transform:scale(1.04)}
+    .item__meta{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 .5rem}
+    .item h3{font-size:1.22rem;line-height:1.32;margin-bottom:.6rem}
+    .item__link:hover h3{color:var(--accent)}
+    .item__blurb{font-size:.95rem;color:var(--ink-soft);margin-bottom:.8rem}
+    .item__go{font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+  </style>
+</Base>

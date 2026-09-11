@@ -1,0 +1,29 @@
+[
+  {
+    "name": "Daily Crypto Brief",
+    "tagline": "An AI-written market brief, published every morning.",
+    "description": "Scrapes signal-heavy Telegram channels overnight, extracts the trading signals worth keeping, and writes them up as a single readable brief. Runs itself on a schedule and publishes to a static site.",
+    "stack": ["Python", "Anthropic API", "Flask", "GitHub Pages"],
+    "cadence": "Updates daily, 9:30am",
+    "href": "https://chlocc.github.io/trading-agent/",
+    "repo": "https://github.com/chlocc/trading-agent"
+  },
+  {
+    "name": "SEC Crypto Task Force Tracker",
+    "tagline": "Every Crypto Task Force move, summarised and dated.",
+    "description": "Watches four SEC Crypto Task Force pages for changes, diffs them, and writes a plain-English summary of what actually moved — meetings, statements, roundtables and personnel. Running continuously since January 2026.",
+    "stack": ["Python", "Claude", "OpenRouter fallback", "GitHub Pages"],
+    "cadence": "Updates daily, 10:00am",
+    "href": "https://chlocc.github.io/sec-cryptotaskforce-tracker/",
+    "repo": "https://github.com/chlocc/sec-cryptotaskforce-tracker"
+  },
+  {
+    "name": "Enforcement Radar",
+    "tagline": "Digital-asset enforcement activity, in one view.",
+    "description": "Pulls enforcement actions across regulators into a single filterable timeline, so the pattern of what is actually being pursued is visible at a glance rather than buried across press-release pages.",
+    "stack": ["Python", "Static site"],
+    "cadence": "Updated on a schedule",
+    "href": "https://chlocc.github.io/enforcement-radar/",
+    "repo": "https://github.com/chlocc/enforcement-radar"
+  }
+]

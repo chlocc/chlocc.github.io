@@ -1,0 +1,57 @@
+---
+import Base from "../layouts/Base.astro";
+import builds from "../data/builds.json";
+---
+<Base title="Builds — Chloe L. W. Chan" description="Small tools I build and run: regulatory trackers, market briefs and enforcement data, mostly automated and publicly hosted.">
+  <header class="wrap pagehead">
+    <span class="eyebrow">Builds</span>
+    <h1>Things I build</h1>
+    <p class="lede">Side projects that keep running after I stop looking at them. Mostly the same
+    idea in different clothes: take a slow, scattered source of regulatory or market
+    information, watch it automatically, and turn it into something readable.
+    All of them are live — click through.</p>
+  </header>
+
+  <section class="wrap">
+    <div class="builds">
+      {builds.map((b, i) => (
+        <article class="build">
+          <div class="build__num">{String(i + 1).padStart(2, "0")}</div>
+          <div class="build__body">
+            <h2><a href={b.href} target="_blank" rel="noopener">{b.name}<span class="arrow"> ↗</span></a></h2>
+            <p class="build__tag">{b.tagline}</p>
+            <p class="build__desc">{b.description}</p>
+            <ul class="chips">{b.stack.map(s => <li>{s}</li>)}</ul>
+            <p class="build__foot">
+              <span class="cadence">{b.cadence}</span>
+              <a href={b.repo} target="_blank" rel="noopener">Source on GitHub</a>
+            </p>
+          </div>
+        </article>
+      ))}
+    </div>
+
+    <p class="more muted">More in progress — a look-through ETF overlap tracker and an
+    AI-litigation docket tracker. They will appear here when they are ready to be public.</p>
+  </section>
+
+  <style>
+    .builds{display:grid;gap:clamp(2rem,4vw,3rem);border-top:1px solid var(--rule)}
+    .build{display:grid;gap:1rem;padding-block:clamp(2rem,4vw,3rem);border-bottom:1px solid var(--rule)}
+    @media(min-width:820px){.build{grid-template-columns:4rem 1fr;gap:2.5rem}}
+    .build__num{font-family:var(--serif);font-size:1.5rem;color:var(--accent);opacity:.55}
+    .build__body{max-width:68ch}
+    .build h2{font-size:clamp(1.6rem,2.6vw,2.1rem)}
+    .build h2 a{text-decoration:none}
+    .build h2 a:hover{color:var(--accent)}
+    .arrow{font-size:.7em;color:var(--accent)}
+    .build__tag{font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--ink-soft);margin:.5rem 0 1rem}
+    .build__desc{color:var(--ink-soft);font-size:.98rem}
+    .chips{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:1.2rem 0}
+    .chips li{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--rule);padding:.35rem .7rem;border-radius:999px}
+    .build__foot{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;font-size:.82rem;margin:0}
+    .cadence{color:var(--muted);letter-spacing:.04em}
+    .build__foot a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
+    .more{margin-top:2.5rem;font-size:.92rem;max-width:60ch}
+  </style>
+</Base>

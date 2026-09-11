@@ -1,0 +1,47 @@
+---
+import Base from "../../layouts/Base.astro";
+---
+<Base title="Ventures — Chloe L. W. Chan" description="Litex, a LegalTech start-up using NLP for personal injury cases, and LibLit, unlocking capital for impact litigation.">
+  <header class="wrap pagehead">
+    <span class="eyebrow">Ventures</span>
+    <h1>Two attempts at closing a gap</h1>
+    <p class="lede">Both started from the same observation: the people with the strongest claims
+    are often the least able to pursue them. One attacks the research cost, the other the
+    funding cost.</p>
+  </header>
+
+  <section class="wrap">
+    <div class="grid grid--2">
+      <a class="venture" href="/projects/litex/">
+        <div class="venture__img"><img src="/img/litex-engine.jpg" alt="" /></div>
+        <span class="venture__tag">LegalTech · 2019–2021</span>
+        <h2>Litex</h2>
+        <p>Hong Kong's first LegalTech start-up leveraging Natural Language Processing to
+        perform data extraction and judgment prediction for personal injury cases.
+        Incubated at HKSTP and the HKAI Lab; winner of Georgetown Law's inaugural
+        Iron Tech Lawyer Invitational.</p>
+        <span class="venture__go">Read the story →</span>
+      </a>
+      <a class="venture" href="/projects/liblit/">
+        <div class="venture__img"><img src="/img/pub-sfc-consultation.jpg" alt="" /></div>
+        <span class="venture__tag">FinTech · Harvard iLab</span>
+        <h2>LibLit</h2>
+        <p>Bridging access to justice through inclusive capitalism — providing liquidity to
+        underfunded impact litigation so that cases with definable social impact are not
+        turned away for want of resources.</p>
+        <span class="venture__go">Read the story →</span>
+      </a>
+    </div>
+  </section>
+
+  <style>
+    .venture{display:block;text-decoration:none;border:1px solid var(--rule);transition:border-color .2s,transform .2s}
+    .venture:hover{border-color:var(--accent);transform:translateY(-2px)}
+    .venture__img{aspect-ratio:16/9;overflow:hidden;background:var(--paper-3)}
+    .venture__img img{width:100%;height:100%;object-fit:cover}
+    .venture__tag{display:block;font-size:.7rem;letter-spacing:.16em;text-transform:uppercase;color:var(--accent);padding:1.6rem clamp(1.5rem,3vw,2.2rem) 0}
+    .venture h2{font-size:1.9rem;padding:.7rem clamp(1.5rem,3vw,2.2rem) 0}
+    .venture p{color:var(--ink-soft);font-size:.98rem;padding:.9rem clamp(1.5rem,3vw,2.2rem) 0}
+    .venture__go{display:inline-block;font-size:.78rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding:1.3rem clamp(1.5rem,3vw,2.2rem) 2rem}
+  </style>
+</Base>

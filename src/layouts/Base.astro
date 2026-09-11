@@ -1,0 +1,101 @@
+---
+import "../styles/global.css";
+const { title, description = "Chloe Lok Wing Chan — law, finance and technology. Writing on digital asset regulation, ventures in legaltech and fintech, and things built along the way.", image = "/img/portrait-chloe.png" } = Astro.props;
+const nav = [
+  { href: "/",          label: "Home" },
+  { href: "/writing/",  label: "Writing" },
+  { href: "/projects/", label: "Ventures" },
+  { href: "/builds/",   label: "Builds" },
+  { href: "/film/",     label: "Film" },
+  { href: "/contact/",  label: "Contact" },
+];
+const path = Astro.url.pathname;
+const isActive = (href) => href === "/" ? path === "/" : path.startsWith(href);
+const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://www.chloe-lw-chan.com");
+---
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:image" content={new URL(image, canonical)} />
+  <meta property="og:type" content="website" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="site-head">
+    <div class="wrap site-head__in">
+      <a class="brand" href="/">Chloe&nbsp;L.&nbsp;W.&nbsp;Chan</a>
+      <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+        <span></span><span></span>
+      </button>
+      <nav id="nav" class="nav">
+        {nav.map(i => (
+          <a href={i.href} class={isActive(i.href) ? "is-active" : ""} aria-current={isActive(i.href) ? "page" : undefined}>{i.label}</a>
+        ))}
+      </nav>
+    </div>
+  </header>
+
+  <main id="main"><slot /></main>
+
+  <footer class="site-foot">
+    <div class="wrap site-foot__in">
+      <div>
+        <p class="foot-name">Chloe Lok Wing Chan</p>
+        <p class="muted foot-note">Law · finance · technology. Cambridge, Massachusetts.</p>
+      </div>
+      <nav class="foot-nav">
+        {nav.slice(1).map(i => <a href={i.href}>{i.label}</a>)}
+      </nav>
+      <nav class="foot-nav">
+        <a href="https://www.linkedin.com/in/chloe-lok-wing-chan/" rel="me noopener" target="_blank">LinkedIn</a>
+        <a href="https://cryptophobiccryptophile.substack.com/" rel="noopener" target="_blank">Substack</a>
+        <a href="https://github.com/chlocc" rel="me noopener" target="_blank">GitHub</a>
+      </nav>
+    </div>
+    <div class="wrap"><p class="copy muted">© {new Date().getFullYear()} Chloe Lok Wing Chan</p></div>
+  </footer>
+
+  <style is:global>
+    .site-head{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--paper) 88%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--rule)}
+    .site-head__in{display:flex;align-items:center;justify-content:space-between;gap:1rem;min-height:68px;flex-wrap:wrap}
+    .brand{font-family:var(--serif);font-size:1.15rem;letter-spacing:.01em;text-decoration:none;white-space:nowrap}
+    .nav{display:flex;gap:clamp(1rem,2.4vw,2.1rem);align-items:center}
+    .nav a{font-size:.82rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;text-decoration:none;color:var(--ink-soft);padding-block:.35rem;border-bottom:1px solid transparent}
+    .nav a:hover{color:var(--ink)}
+    .nav a.is-active{color:var(--accent);border-bottom-color:var(--accent)}
+    .burger{display:none;background:none;border:0;padding:.6rem;cursor:pointer}
+    .burger span{display:block;width:22px;height:1.5px;background:var(--ink);margin:4px 0}
+    @media(max-width:760px){
+      .burger{display:block}
+      .nav{display:none;width:100%;flex-direction:column;align-items:flex-start;gap:.2rem;padding-bottom:1rem}
+      .nav.is-open{display:flex}
+      .nav a{padding-block:.6rem;width:100%}
+    }
+    .site-foot{border-top:1px solid var(--rule);background:var(--paper-2);padding-block:clamp(2.5rem,5vw,4rem) 1.5rem;margin-top:clamp(3rem,7vw,6rem)}
+    .site-foot__in{display:grid;gap:2rem;align-items:start}
+    @media(min-width:760px){.site-foot__in{grid-template-columns:2fr 1fr 1fr}}
+    .foot-name{font-family:var(--serif);font-size:1.25rem;margin:0 0 .35rem}
+    .foot-note{font-size:.9rem;margin:0}
+    .foot-nav{display:flex;flex-direction:column;gap:.55rem}
+    .foot-nav a{font-size:.85rem;text-decoration:none;color:var(--ink-soft)}
+    .foot-nav a:hover{color:var(--accent)}
+    .copy{font-size:.78rem;margin:2.5rem 0 0;padding-top:1.25rem;border-top:1px solid var(--rule)}
+  </style>
+  <script>
+    const b=document.querySelector(".burger"),n=document.getElementById("nav");
+    b?.addEventListener("click",()=>{const o=n.classList.toggle("is-open");b.setAttribute("aria-expanded",String(o));});
+  </script>
+</body>
+</html>
