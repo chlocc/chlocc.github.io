@@ -11,7 +11,13 @@ const steps = [
 const ext = (h) => h.startsWith("http");
 ---
 <Base title="Litex — Chloe Chan" description="Litex: Hong Kong's first LegalTech start-up using NLP for data extraction and judgment prediction in personal injury cases.">
-  <header class="wrap pagehead">
+  <div class="wrap">
+    <figure class="masthead">
+      <img src="/img/litex-engine.jpg" alt="Litex Engine — your AI for PI" width="1790" height="268" />
+    </figure>
+  </div>
+
+  <header class="wrap pagehead pagehead--tight">
     <span class="eyebrow">LegalTech · Co-founder &amp; CEO</span>
     <h1>Litex</h1>
     <p class="lede">Hong Kong's first LegalTech start-up leveraging Natural Language Processing
@@ -122,6 +128,9 @@ const ext = (h) => h.startsWith("http");
   </section>
 
   <style>
+    .masthead{margin:clamp(1.5rem,4vw,3rem) 0 0;border:1px solid var(--rule)}
+    .masthead img{width:100%;height:auto;display:block}
+    .pagehead--tight{padding-top:clamp(2rem,4vw,3rem)}
     .demo-title{text-align:center;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.18;margin-bottom:clamp(1.5rem,3vw,2.5rem)}
     .shot{margin:0;border:1px solid var(--rule);background:var(--paper-2);padding:clamp(.75rem,2vw,1.5rem)}
     .shot video{width:100%;height:auto;display:block;background:#000}
