@@ -35,7 +35,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://www.chloe-l
 
   <header class="site-head">
     <div class="wrap site-head__in">
-      <a class="brand" href="/">Chloe&nbsp;L.&nbsp;W.&nbsp;Chan</a>
+      <a class="brand" href="/">Chloe Chan</a>
       <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu">
         <span></span><span></span>
       </button>
@@ -52,8 +52,8 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://www.chloe-l
   <footer class="site-foot">
     <div class="wrap site-foot__in">
       <div>
-        <p class="foot-name">Chloe Lok Wing Chan</p>
-        <p class="muted foot-note">Law · finance · technology. Cambridge, Massachusetts.</p>
+        <p class="foot-name">Chloe Chan</p>
+        <p class="muted foot-note">Law · finance · technology. New York City, United States.</p>
       </div>
       <nav class="foot-nav">
         {nav.slice(1).map(i => <a href={i.href}>{i.label}</a>)}
@@ -64,7 +64,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://www.chloe-l
         <a href="https://github.com/chlocc" rel="me noopener" target="_blank">GitHub</a>
       </nav>
     </div>
-    <div class="wrap"><p class="copy muted">© {new Date().getFullYear()} Chloe Lok Wing Chan</p></div>
+    <div class="wrap"><p class="copy muted">© {new Date().getFullYear()} Chloe Chan</p></div>
   </footer>
 
   <style is:global>

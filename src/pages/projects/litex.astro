@@ -10,7 +10,7 @@ const steps = [
 ];
 const ext = (h) => h.startsWith("http");
 ---
-<Base title="Litex — Chloe L. W. Chan" description="Litex: Hong Kong's first LegalTech start-up using NLP for data extraction and judgment prediction in personal injury cases.">
+<Base title="Litex — Chloe Chan" description="Litex: Hong Kong's first LegalTech start-up using NLP for data extraction and judgment prediction in personal injury cases.">
   <header class="wrap pagehead">
     <span class="eyebrow">LegalTech · Co-founder &amp; CEO</span>
     <h1>Litex</h1>
@@ -20,9 +20,47 @@ const ext = (h) => h.startsWith("http");
   </header>
 
   <section class="wrap">
-    <figure class="shot"><img src="/img/litex-screenshot.jpeg" alt="The Litex research engine" />
-      <figcaption class="muted">A user-centric research engine for personal injury cases</figcaption>
+    <h2 class="demo-title">A user-centric research engine<br />for personal injury cases</h2>
+    <figure class="shot">
+      <video
+        src="/files/litex-demo.mp4"
+        poster="/img/litex-screenshot.jpeg"
+        controls
+        muted
+        loop
+        playsinline
+        preload="metadata"
+        aria-label="Demonstration of the Litex research engine">
+      </video>
+      <figcaption class="muted">Product demo — filtering personal injury judgments by key factor.</figcaption>
     </figure>
+  </section>
+
+  <section class="section results">
+    <div class="wrap">
+      <ul class="stats">
+        <li>
+          <span class="stats__n">100%<sup>1</sup></span>
+          <span class="stats__l">Matching results</span>
+        </li>
+        <li>
+          <span class="stats__n">240<sup>2</sup></span>
+          <span class="stats__l">Minutes saved on average</span>
+        </li>
+        <li>
+          <span class="stats__n">15<sup>3</sup></span>
+          <span class="stats__l">Law firms satisfied</span>
+        </li>
+      </ul>
+      <ol class="fn">
+        <li>Based on our Key-Factor-Matching searching mechanism, only results matching your
+        stipulated key factors are displayed.</li>
+        <li>Based on internal testing conducted by law students on three different search
+        subjects, compared against two other legal research engines.</li>
+        <li>Based on feedback from lawyers who helped us test the system or signed up for the
+        free trial.</li>
+      </ol>
+    </div>
   </section>
 
   <section class="section">
@@ -84,9 +122,19 @@ const ext = (h) => h.startsWith("http");
   </section>
 
   <style>
-    .shot{margin:0;border:1px solid var(--rule);background:var(--paper-2);padding:clamp(1rem,3vw,2.5rem)}
-    .shot img{width:100%;height:auto}
+    .demo-title{text-align:center;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.18;margin-bottom:clamp(1.5rem,3vw,2.5rem)}
+    .shot{margin:0;border:1px solid var(--rule);background:var(--paper-2);padding:clamp(.75rem,2vw,1.5rem)}
+    .shot video{width:100%;height:auto;display:block;background:#000}
     .shot figcaption{text-align:center;font-size:.85rem;margin-top:1rem}
+
+    .results{padding-block:clamp(3rem,6vw,5rem)}
+    .stats{list-style:none;margin:0;padding:0;display:grid;gap:clamp(2rem,4vw,3rem);text-align:center}
+    @media(min-width:720px){.stats{grid-template-columns:repeat(3,1fr)}}
+    .stats__n{display:block;font-family:var(--serif);font-weight:400;font-size:clamp(3rem,7vw,4.6rem);line-height:1;color:var(--accent)}
+    .stats__n sup{font-size:.3em;vertical-align:super;margin-left:.1em;color:var(--muted)}
+    .stats__l{display:block;margin-top:.9rem;font-size:.8rem;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-soft)}
+    .fn{margin:clamp(2.5rem,5vw,3.5rem) 0 0;padding:1.5rem 0 0 1.2rem;border-top:1px solid var(--rule);font-size:.82rem;color:var(--muted);line-height:1.55;max-width:74ch}
+    .fn li{margin-bottom:.5rem}
     .sec-title{margin-bottom:clamp(1.75rem,3vw,2.5rem)}
 
     .traction{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
