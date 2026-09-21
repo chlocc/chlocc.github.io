@@ -9,7 +9,7 @@ import builds from "../data/builds.json";
     <p class="lede">Side projects that keep running after I stop looking at them. Mostly the same
     idea in different clothes: take a slow, scattered source of regulatory or market
     information, watch it automatically, and turn it into something readable.
-    All of them are live — click through.</p>
+    All of them are running — click through.</p>
   </header>
 
   <section class="wrap">
@@ -24,6 +24,7 @@ import builds from "../data/builds.json";
             <ul class="chips">{b.stack.map(s => <li>{s}</li>)}</ul>
             <p class="build__foot">
               <span class="cadence">{b.cadence}</span>
+              {b.access && <span class="locked">{b.access}</span>}
               <a href={b.repo} target="_blank" rel="noopener">Source on GitHub</a>
             </p>
           </div>
@@ -50,6 +51,7 @@ import builds from "../data/builds.json";
     .chips{list-style:none;display:flex;flex-wrap:wrap;gap:.5rem;padding:0;margin:1.2rem 0}
     .chips li{font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);border:1px solid var(--rule);padding:.35rem .7rem;border-radius:999px}
     .build__foot{display:flex;gap:1.5rem;flex-wrap:wrap;align-items:center;font-size:.82rem;margin:0}
+    .locked{color:var(--accent);letter-spacing:.04em}
     .cadence{color:var(--muted);letter-spacing:.04em}
     .build__foot a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
     .more{margin-top:2.5rem;font-size:.92rem;max-width:60ch}
