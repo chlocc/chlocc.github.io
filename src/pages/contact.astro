@@ -25,19 +25,28 @@ const configured = !FORMSPREE_ENDPOINT.includes("REPLACE_ME");
         <p class="muted loc">New York City, United States</p>
       </div>
 
-      <form class="form" action={FORMSPREE_ENDPOINT} method="POST">
-        <div class="row">
-          <label>First name<input type="text" name="first_name" required autocomplete="given-name" /></label>
-          <label>Last name<input type="text" name="last_name" autocomplete="family-name" /></label>
+      {configured ? (
+        <form class="form" action={FORMSPREE_ENDPOINT} method="POST">
+          <div class="row">
+            <label>First name<input type="text" name="first_name" required autocomplete="given-name" /></label>
+            <label>Last name<input type="text" name="last_name" autocomplete="family-name" /></label>
+          </div>
+          <label>Email<input type="email" name="email" required autocomplete="email" /></label>
+          <label>Message<textarea name="message" rows="6" required></textarea></label>
+          <button class="btn btn--accent" type="submit">Send</button>
+        </form>
+      ) : (
+        <div class="reach">
+          <p class="reach__lede">The quickest way to reach me is email — I read everything that
+          arrives there.</p>
+          <a class="btn btn--accent" href="mailto:lwc.chloe@outlook.com">Email me</a>
+          <p class="reach__alt muted">Or find me on
+            <a href="https://www.linkedin.com/in/chloe-lok-wing-chan/" target="_blank" rel="noopener">LinkedIn</a>,
+            <a href="https://cryptophobiccryptophile.substack.com/" target="_blank" rel="noopener">Substack</a> and
+            <a href="https://github.com/chlocc" target="_blank" rel="noopener">GitHub</a>.
+          </p>
         </div>
-        <label>Email<input type="email" name="email" required autocomplete="email" /></label>
-        <label>Message<textarea name="message" rows="6" required></textarea></label>
-        {!configured && (
-          <p class="notice">This form is not wired up yet — sign up at formspree.io and drop the
-          endpoint into <code>src/pages/contact.astro</code>. Until then, email is the reliable route.</p>
-        )}
-        <button class="btn btn--accent" type="submit" disabled={!configured}>Send</button>
-      </form>
+      )}
     </div>
   </section>
 
@@ -55,8 +64,9 @@ const configured = !FORMSPREE_ENDPOINT.includes("REPLACE_ME");
     input,textarea{font:inherit;font-size:1rem;color:var(--ink);background:var(--paper);border:1px solid var(--rule);padding:.8rem .9rem;border-radius:0;width:100%}
     input:focus,textarea:focus{outline:none;border-color:var(--accent)}
     textarea{resize:vertical}
-    button[disabled]{opacity:.45;cursor:not-allowed}
-    .notice{font-size:.85rem;color:var(--ink-soft);background:var(--paper-2);border-left:2px solid var(--accent);padding:.9rem 1rem;margin:0}
-    .notice code{font-size:.85em;background:var(--paper-3);padding:.1rem .3rem}
+    .reach{border:1px solid var(--rule);background:var(--paper-2);padding:clamp(1.75rem,4vw,2.75rem)}
+    .reach__lede{font-family:var(--serif);font-size:clamp(1.15rem,2vw,1.4rem);line-height:1.4;color:var(--ink);margin:0 0 1.75rem;max-width:34ch}
+    .reach__alt{font-size:.92rem;margin:1.75rem 0 0}
+    .reach__alt a{color:var(--accent);text-decoration:none;border-bottom:1px solid color-mix(in srgb,var(--accent) 35%,transparent)}
   </style>
 </Base>
