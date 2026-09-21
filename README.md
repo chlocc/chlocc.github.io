@@ -1,6 +1,6 @@
 # chloe-lw-chan.com
 
-Personal site for Chloe Chan. Static site built with [Astro](https://astro.build),
+Personal site for Chloe C.. Static site built with [Astro](https://astro.build),
 deployed to GitHub Pages. Migrated off Wix in September 2026.
 
 ## Run locally

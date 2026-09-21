@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-const { title, description = "Chloe Chan — law, finance and technology. Writing on digital asset regulation, ventures in legaltech and fintech, and things built along the way.", image = "/img/portrait-chloe.png" } = Astro.props;
+const { title, description = "Chloe C. — law, finance and technology. Writing on digital asset regulation, ventures in legaltech and fintech, and things built along the way.", image = "/img/portrait-chloe.png" } = Astro.props;
 const nav = [
   { href: "/",          label: "Home" },
   { href: "/writing/",  label: "Writing" },
@@ -35,7 +35,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://www.chloe-l
 
   <header class="site-head">
     <div class="wrap site-head__in">
-      <a class="brand" href="/">Chloe Chan</a>
+      <a class="brand" href="/">Chloe C.</a>
       <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu">
         <span></span><span></span>
       </button>
@@ -52,7 +52,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://www.chloe-l
   <footer class="site-foot">
     <div class="wrap site-foot__in">
       <div>
-        <p class="foot-name">Chloe Chan</p>
+        <p class="foot-name">Chloe C.</p>
         <p class="muted foot-note">Law · finance · technology. New York City, United States.</p>
       </div>
       <nav class="foot-nav">
@@ -64,7 +64,7 @@ const canonical = new URL(Astro.url.pathname, Astro.site ?? "https://www.chloe-l
         <a href="https://github.com/chlocc" rel="me noopener" target="_blank">GitHub</a>
       </nav>
     </div>
-    <div class="wrap"><p class="copy muted">© {new Date().getFullYear()} Chloe Chan</p></div>
+    <div class="wrap"><p class="copy muted">© {new Date().getFullYear()} Chloe C.</p></div>
   </footer>
 
   <style is:global>
