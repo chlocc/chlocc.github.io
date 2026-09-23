@@ -128,11 +128,11 @@ const ext = (h) => h.startsWith("http");
   </section>
 
   <style>
-    .masthead{margin:clamp(1.5rem,4vw,3rem) 0 0;border:1px solid var(--rule)}
+    .masthead{margin:clamp(1.5rem,4vw,3rem) 0 0;border:1px solid var(--rule);border-radius:var(--radius);overflow:hidden}
     .masthead img{width:100%;height:auto;display:block}
     .pagehead--tight{padding-top:clamp(2rem,4vw,3rem)}
     .demo-title{text-align:center;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.18;margin-bottom:clamp(1.5rem,3vw,2.5rem)}
-    .shot{margin:0;border:1px solid var(--rule);background:var(--paper-2);padding:clamp(.75rem,2vw,1.5rem)}
+    .shot{margin:0;border:1px solid var(--rule);background:var(--card);border-radius:var(--radius);padding:clamp(.75rem,2vw,1.5rem)}
     .shot video{width:100%;height:auto;display:block;background:#000}
     .shot figcaption{text-align:center;font-size:.85rem;margin-top:1rem}
 
@@ -149,7 +149,7 @@ const ext = (h) => h.startsWith("http");
     .traction{list-style:none;padding:0;margin:1.5rem 0 0;display:grid;gap:1px;background:var(--rule);border:1px solid var(--rule)}
     @media(min-width:640px){.traction{grid-template-columns:repeat(2,1fr)}}
     @media(min-width:960px){.traction{grid-template-columns:repeat(3,1fr)}}
-    .traction li{background:var(--paper);padding:1.6rem 1.4rem;display:grid;gap:.4rem}
+    .traction li{background:var(--card);padding:1.6rem 1.4rem;display:grid;gap:.4rem}
     .traction strong{font-family:var(--serif);font-size:1.5rem;font-weight:500;color:var(--accent)}
     .traction span{font-size:.9rem;color:var(--ink-soft);line-height:1.4}
 
@@ -161,7 +161,7 @@ const ext = (h) => h.startsWith("http");
     .step p{color:var(--ink-soft);font-size:.96rem}
 
     .art a{text-decoration:none;display:block;height:100%}
-    .art__img{aspect-ratio:16/10;overflow:hidden;background:var(--paper-3);margin-bottom:1rem}
+    .art__img{aspect-ratio:16/10;overflow:hidden;background:var(--paper-3);border-radius:var(--radius);margin-bottom:1rem}
     .art__img img{width:100%;height:100%;object-fit:cover;transition:transform .4s}
     .art a:hover .art__img img{transform:scale(1.04)}
     .art__meta{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin:0 0 .5rem}

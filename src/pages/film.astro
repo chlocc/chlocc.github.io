@@ -32,11 +32,11 @@ import Base from "../layouts/Base.astro";
   <style>
     .feature{display:grid;gap:clamp(1.5rem,4vw,3.5rem);align-items:center}
     @media(min-width:880px){.feature{grid-template-columns:1.15fr .85fr}}
-    .feature__img{background:var(--paper-3)}
+    .feature__img{background:var(--paper-3);border-radius:var(--radius);overflow:hidden}
     .feature__img img{width:100%;height:auto}
     .feature__body h2{margin-bottom:1rem;font-size:clamp(1.7rem,2.8vw,2.3rem)}
     .feature__body p{color:var(--ink-soft);margin-bottom:1.8rem}
-    .soon{border:1px dashed var(--rule);padding:clamp(2.5rem,6vw,4.5rem);text-align:center}
+    .soon{border:1px dashed var(--rule);border-radius:var(--radius);padding:clamp(2.5rem,6vw,4.5rem);text-align:center}
     .soon__text{font-family:var(--serif);font-size:1.6rem;color:var(--muted);margin:0}
   </style>
 </Base>
