@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Chloe C. — Layout Mockup</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+<style>
+  /* Colour tokens copied from src/styles/global.css — the current site theme */
+  :root{
+    --paper:#F8FBFD; --paper-2:#EBF2F9; --paper-3:#DDE8F3;
+    --ink:#121922; --ink-soft:#4B5768; --muted:#7C8899;
+    --rule:#DCE6F0; --accent:#2B5FA8; --accent-soft:#4C7FC4;
+    --marker:#B9D8F2; --card:#FFFFFF;
+    --serif:"Instrument Serif","Iowan Old Style",Georgia,serif;
+    --sans:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    --col:780px;
+    --shadow:0 1px 2px rgba(18,25,34,.04),0 8px 24px rgba(20,45,80,.06);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:96px}
+  body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.55;-webkit-font-smoothing:antialiased}
+  img{display:block;max-width:100%}
+  a{color:inherit}
+  h1,h2,h3,p{margin:0}
+
+  .col{max-width:var(--col);margin:0 auto;padding:0 16px}
+
+  /* ---------- sticky top bar ---------- */
+  .top{position:sticky;top:12px;z-index:10;margin-top:12px}
+  .bar{display:flex;align-items:center;justify-content:space-between;gap:1rem;
+    background:color-mix(in srgb,var(--paper-2) 88%,transparent);backdrop-filter:blur(10px);
+    border:1px solid var(--rule);border-radius:18px;padding:10px 12px 10px 18px}
+  .clock{font-size:12.5px;font-weight:500;white-space:nowrap;font-variant-numeric:tabular-nums}
+  .clock span{color:var(--muted);font-weight:400;margin-left:6px}
+  .nav{display:flex;gap:1.3rem;font-size:13.5px;font-weight:500}
+  .nav a{text-decoration:none;color:var(--ink)}
+  .nav a:hover{color:var(--accent)}
+  .socials{display:flex;gap:6px}
+  .ico{width:32px;height:32px;display:grid;place-items:center;border-radius:9px;background:var(--card);
+    border:1px solid var(--rule);color:var(--ink);transition:border-color .15s,color .15s}
+  .ico:hover{border-color:var(--accent-soft);color:var(--accent)}
+  .ico svg{width:15px;height:15px}
+  @media(max-width:720px){.nav{display:none}}
+
+  /* ---------- section cards ---------- */
+  main{display:grid;gap:14px;margin:14px auto 0}
+  .card{background:var(--card);border:1px solid var(--rule);border-radius:22px;padding:clamp(22px,5vw,40px)}
+  .card--tint{background:var(--paper-2)}
+  .h2{font-family:var(--serif);font-weight:400;font-size:clamp(1.7rem,3.4vw,2.1rem);line-height:1.1;letter-spacing:-.01em}
+  .sub{color:var(--ink-soft);margin-top:6px;font-size:14px}
+  .head{margin-bottom:24px}
+  .eyebrow{font-size:12.5px;color:var(--muted)}
+
+  .btn{display:inline-flex;align-items:center;gap:8px;font:500 14px/1 var(--sans);padding:13px 18px;border-radius:12px;
+    text-decoration:none;border:1px solid var(--rule);background:var(--card);color:var(--ink);cursor:pointer;
+    box-shadow:var(--shadow);transition:border-color .15s,background .15s}
+  .btn:hover{border-color:var(--accent-soft)}
+  .btn--dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .btn--dark:hover{background:var(--accent);border-color:var(--accent)}
+  .center{display:flex;justify-content:center;margin-top:24px}
+
+  /* ---------- hero ---------- */
+  .hero{position:relative;overflow:hidden}
+  .hero > *{position:relative}
+  .hero__grid{position:absolute;inset:0 0 0 auto;width:48%;pointer-events:none;
+    background-image:linear-gradient(var(--rule) 1px,transparent 1px),linear-gradient(90deg,var(--rule) 1px,transparent 1px);
+    background-size:68px 68px;
+    -webkit-mask-image:radial-gradient(ellipse 70% 60% at 75% 45%,#000 10%,transparent 72%);
+            mask-image:radial-gradient(ellipse 70% 60% at 75% 45%,#000 10%,transparent 72%)}
+  .pill{position:absolute;top:22px;right:22px;display:inline-flex;align-items:center;gap:7px;font-size:12px;font-weight:500;
+    color:var(--accent);background:var(--paper-2);border:1px solid var(--rule);border-radius:999px;padding:5px 11px}
+  .pill i{width:7px;height:7px;border-radius:50%;background:var(--accent-soft);box-shadow:0 0 0 3px color-mix(in srgb,var(--accent-soft) 25%,transparent)}
+  @media(max-width:600px){.pill{position:static;margin-bottom:14px}}
+  .who{display:flex;align-items:center;gap:16px;margin:8px 0 28px}
+  .avatar{width:76px;height:76px;border-radius:50%;object-fit:cover;object-position:50% 18%;background:var(--paper-3);border:3px solid var(--card);box-shadow:0 0 0 1px var(--rule)}
+  .who b{display:block;font-weight:500;font-size:16px}
+  .who span{font-size:13px;color:var(--ink-soft)}
+  .hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(2.1rem,5.2vw,3rem);line-height:1.06;letter-spacing:-.015em;max-width:19ch}
+  .marker{background:linear-gradient(transparent 58%,var(--marker) 58%)}
+  .lede{color:var(--ink-soft);font-size:15.5px;max-width:48ch;margin-top:16px}
+  .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+  .trusted{margin-top:42px;font-size:13px;color:var(--ink-soft)}
+  .logos{display:flex;flex-wrap:wrap;align-items:center;gap:22px 30px;margin-top:16px}
+  .logos img{height:30px;width:auto;filter:grayscale(1);opacity:.7;mix-blend-mode:multiply;transition:opacity .15s,filter .15s}
+  .logos img:hover{filter:none;opacity:1}
+
+  /* ---------- about ---------- */
+  .about__text{font-size:clamp(1.05rem,2vw,1.2rem);line-height:1.5;margin-top:14px;color:var(--muted)}
+  .about__text strong{color:var(--ink);font-weight:500}
+  .contactline{display:flex;flex-wrap:wrap;gap:8px 22px;margin-top:22px;font-size:13.5px}
+  .contactline a{display:inline-flex;align-items:center;gap:7px;text-decoration:none;color:var(--ink-soft)}
+  .contactline a:hover{color:var(--accent)}
+  .contactline svg{width:15px;height:15px}
+  .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-top:30px;padding-top:26px;border-top:1px solid var(--rule)}
+  .stat b{display:block;font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1}
+  .stat span{display:block;font-size:12.5px;color:var(--muted);margin-top:6px}
+  @media(max-width:600px){.stats{grid-template-columns:repeat(2,1fr);row-gap:22px}}
+
+  /* ---------- writing grid ---------- */
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  @media(max-width:600px){.grid2{grid-template-columns:1fr}}
+  .work{text-decoration:none;display:block}
+  .work__img{aspect-ratio:4/3;border-radius:16px;overflow:hidden;background:var(--paper-3);border:1px solid var(--rule)}
+  .work__img img{width:100%;height:100%;object-fit:cover;transition:opacity .2s}
+  .work:hover .work__img img{opacity:.88}
+  .work__meta{font-size:12.5px;color:var(--muted);margin-top:12px}
+  .work__title{font-size:15.5px;font-weight:500;line-height:1.35;margin-top:3px}
+  .work:hover .work__title{color:var(--accent)}
+
+  /* ---------- builds (services) ---------- */
+  .svc{background:var(--card);border:1px solid var(--rule);border-radius:16px;padding:22px;text-decoration:none;display:flex;flex-direction:column;min-height:210px;transition:border-color .15s}
+  .svc:hover{border-color:var(--accent-soft)}
+  .svc__n{font-family:var(--serif);font-size:2.2rem;line-height:1;color:#C3D3E4}
+  .svc h3{font-size:17px;font-weight:500;line-height:1.3;margin-top:auto;padding-top:28px}
+  .svc p{font-size:13px;color:var(--muted);margin-top:8px}
+  .svc__go{float:right;color:var(--accent)}
+
+  /* ---------- ventures (pricing-style light/dark pair) ---------- */
+  .venture{border-radius:18px;padding:26px;border:1px solid var(--rule);background:var(--card);display:flex;flex-direction:column}
+  .venture--dark{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .venture__tag{font-size:12px;color:var(--muted)}
+  .venture h3{font-family:var(--serif);font-weight:400;font-size:2rem;line-height:1;margin-top:6px}
+  .venture__lede{font-size:13.5px;color:var(--ink-soft);margin-top:10px}
+  .venture .btn{justify-content:center;margin:20px 0 22px;box-shadow:none}
+  .venture--dark .btn{background:#fff;color:var(--ink);border-color:#fff}
+  .venture--dark .btn:hover{background:var(--marker);border-color:var(--marker)}
+  .venture ul{list-style:none;margin:0;padding:18px 0 0;border-top:1px solid var(--rule);display:grid;gap:10px}
+  .venture--dark ul{border-top-color:#2A3441}
+  .venture li{display:flex;gap:10px;font-size:13.5px;color:var(--ink-soft)}
+  .venture li svg{flex:none;width:16px;height:16px;margin-top:2px;color:var(--accent-soft)}
+  .venture--dark .venture__tag,.venture--dark .venture__lede,.venture--dark li{color:#B8C3D2}
+  .venture--dark li svg{color:var(--marker)}
+
+  /* ---------- background (FAQ-style accordion) ---------- */
+  .acc{display:grid;gap:10px}
+  details{background:var(--card);border:1px solid var(--rule);border-radius:14px}
+  summary{list-style:none;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:1rem;padding:16px 18px;font-weight:500;font-size:14.5px}
+  summary::-webkit-details-marker{display:none}
+  summary svg{width:16px;height:16px;flex:none;transition:transform .2s}
+  details[open] summary svg{transform:rotate(180deg)}
+  details p{padding:0 18px 18px;color:var(--ink-soft);font-size:14px}
+
+  /* ---------- contact ---------- */
+  form{display:grid;gap:12px}
+  .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+  @media(max-width:600px){.row{grid-template-columns:1fr}}
+  input,textarea,select{width:100%;font:inherit;font-size:14px;color:var(--ink);background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:14px}
+  input:focus,textarea:focus,select:focus{outline:none;border-color:var(--accent-soft)}
+  textarea{min-height:130px;resize:vertical}
+  form .btn{justify-content:center;width:100%}
+
+  footer{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:12.5px;color:var(--muted);padding:26px 16px 40px}
+  footer nav{display:flex;gap:18px}
+  footer a{text-decoration:none}
+  footer a:hover{color:var(--accent)}
+
+  .note{position:fixed;left:12px;bottom:12px;z-index:20;font-size:11.5px;background:var(--ink);color:#fff;padding:7px 11px;border-radius:9px;opacity:.85}
+</style>
+</head>
+<body>
+
+<div class="note">Local mockup — not live</div>
+
+<!-- ============ TOP BAR ============ -->
+<div class="col top">
+  <div class="bar">
+    <div class="clock"><time id="clock">--:--:--</time><span>New York</span></div>
+    <nav class="nav">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#writing">Writing</a><a href="#builds">Builds</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="socials">
+      <a class="ico" href="https://www.linkedin.com/in/chloe-lok-wing-chan/" target="_blank" rel="noopener" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9.5h4V21H3V9.5Zm7 0h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.1c0-1.22-.02-2.78-1.7-2.78-1.7 0-1.96 1.33-1.96 2.7V21h-4V9.5Z"/></svg></a>
+      <a class="ico" href="https://cryptophobiccryptophile.substack.com/" target="_blank" rel="noopener" aria-label="Substack">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4 3h16v2.4H4V3Zm0 4.6h16V10H4V7.6ZM4 12.2h16V22l-8-4.5L4 22v-9.8Z"/></svg></a>
+      <a class="ico" href="https://github.com/chlocc" target="_blank" rel="noopener" aria-label="GitHub">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a10 10 0 0 0-3.16 19.49c.5.09.68-.22.68-.48v-1.7c-2.78.6-3.37-1.34-3.37-1.34-.45-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.61.07-.61 1 .07 1.53 1.03 1.53 1.03.9 1.52 2.34 1.08 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.94 0-1.09.39-1.98 1.03-2.68-.1-.25-.45-1.27.1-2.64 0 0 .84-.27 2.75 1.02a9.56 9.56 0 0 1 5 0c1.91-1.3 2.75-1.02 2.75-1.02.55 1.37.2 2.39.1 2.64.64.7 1.03 1.59 1.03 2.68 0 3.84-2.34 4.68-4.57 4.93.36.31.68.92.68 1.85v2.75c0 .27.18.58.69.48A10 10 0 0 0 12 2Z"/></svg></a>
+    </div>
+  </div>
+</div>
+
+<main class="col">
+
+  <!-- ============ HERO ============ -->
+  <section class="card hero" id="home">
+    <div class="hero__grid" aria-hidden="true"></div>
+    <span class="pill"><i></i>Based in New York</span>
+    <div class="who">
+      <img class="avatar" src="../public/img/portrait-chloe.png" alt="Chloe C." />
+      <div><b>Chloe C.</b><span>Lawyer · Law, Finance &amp; Technology</span></div>
+    </div>
+    <h1>A lawyer&rsquo;s read on <span class="marker">digital asset regulation.</span></h1>
+    <p class="lede">Hong Kong&ndash;trained lawyer, Harvard Law LL.M., now a law clerk pending admission in the US. I write about where the rules are actually heading &mdash; and build small tools that make the regulatory picture legible.</p>
+    <div class="cta">
+      <a class="btn btn--dark" href="#writing">Read the writing</a>
+      <a class="btn" href="#builds">See what I build</a>
+    </div>
+    <p class="trusted">As featured in</p>
+    <div class="logos">
+      <img src="../public/img/logo-hkej.jpg" alt="Hong Kong Economic Journal" />
+      <img src="../public/img/logo-hong-kong-lawyer.jpg" alt="Hong Kong Lawyer" />
+      <img src="../public/img/logo-skypost.jpg" alt="Sky Post" />
+      <img src="../public/img/logo-unwire.jpg" alt="Unwire" />
+      <img src="../public/img/logo-legal-business-world.jpg" alt="Legal Business World" />
+    </div>
+  </section>
+
+  <!-- ============ ABOUT ============ -->
+  <section class="card" id="about">
+    <p class="eyebrow">About me</p>
+    <p class="about__text"><strong>Hi, I&rsquo;m Chloe &mdash; a Hong Kong&ndash;trained lawyer and crypto native</strong> working on the policy and regulatory questions around AI, blockchain and digital assets. Before Harvard I was a Judicial Assistant at the Court of Final Appeal and a barrister trainee in commercial litigation; I also co-founded Litex, Hong Kong&rsquo;s first LegalTech start-up.</p>
+    <div class="contactline">
+      <a href="mailto:lwc.chloe@outlook.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>lwc.chloe@outlook.com</a>
+      <a href="https://www.linkedin.com/in/chloe-lok-wing-chan/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17 17 7M9 7h8v8"/></svg>LinkedIn</a>
+      <a href="https://cryptophobiccryptophile.substack.com/" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M7 17 17 7M9 7h8v8"/></svg>Substack</a>
+    </div>
+    <div class="stats">
+      <div class="stat"><b>LL.M.</b><span>Harvard Law School</span></div>
+      <div class="stat"><b>1st</b><span>Double first-class honours, HKU</span></div>
+      <div class="stat"><b>2</b><span>Ventures founded</span></div>
+      <div class="stat"><b>4</b><span>Live regulatory trackers</span></div>
+    </div>
+  </section>
+
+  <!-- ============ WRITING (case studies) ============ -->
+  <section class="card card--tint" id="writing">
+    <div class="head">
+      <h2 class="h2">Writing on regulation &amp; markets</h2>
+      <p class="sub">Long-form analysis and commentary on where digital asset rules are heading.</p>
+    </div>
+    <div class="grid2">
+      <a class="work" href="/files/eth-etf-legal-analysis.pdf">
+        <div class="work__img"><img src="../public/img/pub-eth-etf.png" alt="" /></div>
+        <p class="work__meta">Long-form paper · 2024</p>
+        <p class="work__title">A Legal Analysis on an ETH ETF Approval</p>
+      </a>
+      <a class="work" href="https://cryptophobiccryptophile.substack.com/p/tokenization-and-regulations-insights" target="_blank" rel="noopener">
+        <div class="work__img"><img src="../public/img/pub-tokenization.jpg" alt="" /></div>
+        <p class="work__meta">Cryptophobic Cryptophile · May 2025</p>
+        <p class="work__title">Tokenization and Regulations: Insights from the Frontlines</p>
+      </a>
+      <a class="work" href="https://www.hk-lawyer.org/sites/default/files/e-magazines/HONG-KONG-LAWYER-JOURNAL-(MARCH-2024)/64/" target="_blank" rel="noopener">
+        <div class="work__img"><img src="../public/img/pub-hk-lawyer.jpeg" alt="" /></div>
+        <p class="work__meta">Hong Kong Lawyer Journal · March 2024</p>
+        <p class="work__title">Staking Services as Collective Investment Schemes</p>
+      </a>
+      <a class="work" href="https://cryptophobiccryptophile.substack.com/p/the-overruling-of-the-chevron-deference" target="_blank" rel="noopener">
+        <div class="work__img"><img src="../public/img/pub-chevron.png" alt="" /></div>
+        <p class="work__meta">Cryptophobic Cryptophile · July 2024</p>
+        <p class="work__title">Crypto Laws Deciphered #2 — The Overruling of the Chevron Deference</p>
+      </a>
+    </div>
+    <div class="center"><a class="btn" href="/writing/">See all writing</a></div>
+  </section>
+
+  <!-- ============ BUILDS (services) ============ -->
+  <section class="card card--tint" id="builds">
+    <div class="head">
+      <h2 class="h2">Tools I ship on the side</h2>
+      <p class="sub">Small, self-running trackers that make the regulatory picture legible.</p>
+    </div>
+    <div class="grid2">
+      <a class="svc" href="https://chlocc.github.io/trading-agent/" target="_blank" rel="noopener">
+        <span class="svc__n">01</span>
+        <h3>Daily Crypto Brief <span class="svc__go">↗</span></h3>
+        <p>AI-written market brief · daily, 9:30am</p>
+      </a>
+      <a class="svc" href="https://chlocc.github.io/sec-cryptotaskforce-tracker/" target="_blank" rel="noopener">
+        <span class="svc__n">02</span>
+        <h3>SEC Crypto Task Force Tracker <span class="svc__go">↗</span></h3>
+        <p>Every Task Force move, summarised · daily</p>
+      </a>
+      <a class="svc" href="https://chlocc.github.io/enforcement-radar/" target="_blank" rel="noopener">
+        <span class="svc__n">03</span>
+        <h3>Enforcement Radar <span class="svc__go">↗</span></h3>
+        <p>Digital-asset enforcement in one timeline</p>
+      </a>
+      <a class="svc" href="https://chlocc.github.io/ntb-charter-tracker/" target="_blank" rel="noopener">
+        <span class="svc__n">04</span>
+        <h3>NTB Charter Tracker <span class="svc__go">↗</span></h3>
+        <p>National trust bank charters before the OCC · weekly</p>
+      </a>
+    </div>
+  </section>
+
+  <!-- ============ VENTURES (pricing-style pair) ============ -->
+  <section class="card card--tint" id="ventures">
+    <div class="head">
+      <h2 class="h2">Things I have founded</h2>
+      <p class="sub">Two ventures at the intersection of law, finance and technology.</p>
+    </div>
+    <div class="grid2">
+      <div class="venture">
+        <span class="venture__tag">LegalTech · Hong Kong</span>
+        <h3>Litex</h3>
+        <p class="venture__lede">Hong Kong&rsquo;s first LegalTech start-up.</p>
+        <a class="btn" href="/projects/litex/">Read the story</a>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5 9-10"/></svg>NLP for data extraction &amp; judgment prediction</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5 9-10"/></svg>Focused on personal injury cases</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5 9-10"/></svg>Incubated at HKSTP and the HKAI Lab</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5 9-10"/></svg>Iron Tech Lawyer Invitational winner</li>
+        </ul>
+      </div>
+      <div class="venture venture--dark">
+        <span class="venture__tag">FinTech · Boston</span>
+        <h3>LibLit</h3>
+        <p class="venture__lede">Financing for underfunded impact litigation.</p>
+        <a class="btn" href="/projects/liblit/">Read the story</a>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5 9-10"/></svg>Unlocks capital for impact litigation</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5 9-10"/></svg>Innovative litigation-finance structures</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5 9-10"/></svg>Supported by the Harvard Innovation Labs</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m5 12 5 5 9-10"/></svg>Pitched at MIT FinTech Ventures</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ BACKGROUND (FAQ-style) ============ -->
+  <section class="card card--tint">
+    <div class="head">
+      <h2 class="h2">Background</h2>
+      <p class="sub">The short version of the road less travelled.</p>
+    </div>
+    <div class="acc">
+      <details open>
+        <summary>Education<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p>LL.M., Harvard Law School. Postgraduate Certificate in Laws, and a double degree in Social Sciences (Government and Laws) and Laws from the University of Hong Kong, with double first-class honours.</p>
+      </details>
+      <details>
+        <summary>Legal experience<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p>Law clerk (pending admission) at a U.S. law firm. Previously Judicial Assistant at the Hong Kong Court of Final Appeal, and a barrister trainee specialising in corporate and commercial litigation.</p>
+      </details>
+      <details>
+        <summary>At Harvard<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p>Director of the MIT Investment Conference and an organiser of the HLS Blockchain and FinTech Annual Conference.</p>
+      </details>
+      <details>
+        <summary>What I focus on<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <p>Digital asset market structure, stablecoins and tokenization, enforcement trends, and the policy questions around AI and blockchain.</p>
+      </details>
+    </div>
+  </section>
+
+  <!-- ============ CONTACT ============ -->
+  <section class="card card--tint" id="contact">
+    <div class="head">
+      <h2 class="h2">Get in touch</h2>
+      <p class="sub">For writing, speaking, or anything at the intersection of law, finance and technology.</p>
+    </div>
+    <form onsubmit="event.preventDefault();this.querySelector('button').textContent='Mockup only — not sent'">
+      <div class="row"><input placeholder="Full name" aria-label="Full name" /><input type="email" placeholder="Email address" aria-label="Email address" /></div>
+      <select aria-label="Topic"><option>Writing</option><option>Speaking</option><option>Collaboration</option><option>Something else</option></select>
+      <textarea placeholder="Your message" aria-label="Message"></textarea>
+      <button class="btn btn--dark" type="submit">Send message</button>
+    </form>
+  </section>
+
+</main>
+
+<footer class="col">
+  <span>© 2026 Chloe C.</span>
+  <nav><a href="https://www.linkedin.com/in/chloe-lok-wing-chan/">LinkedIn</a><a href="https://cryptophobiccryptophile.substack.com/">Substack</a><a href="https://github.com/chlocc">GitHub</a></nav>
+</footer>
+
+<script>
+  const el = document.getElementById("clock");
+  const fmt = new Intl.DateTimeFormat("en-US", {timeZone:"America/New_York",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:true});
+  const tick = () => { el.textContent = fmt.format(new Date()); };
+  tick(); setInterval(tick, 1000);
+</script>
+</body>
+</html>
